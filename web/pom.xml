@@ -7,11 +7,11 @@
 
   <parent>
     <groupId>mr.cookie</groupId>
-    <artifactId>simple.app</artifactId>
-    <version>${revision}</version>
+    <artifactId>parent</artifactId>
+    <version>0.1</version>
   </parent>
 
-  <artifactId>simple.app.web</artifactId>
+  <artifactId>web</artifactId>
   <name>Simple Boot App Web</name>
   <packaging>jar</packaging>
 
@@ -40,14 +40,18 @@
       <groupId>javax.annotation</groupId>
       <artifactId>javax.annotation-api</artifactId>
     </dependency>
+    <dependency>
+      <groupId>mr.cookie</groupId>
+      <artifactId>models</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mr.cookie</groupId>
+      <artifactId>services</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
