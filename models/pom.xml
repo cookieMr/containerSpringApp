@@ -8,7 +8,7 @@
   <parent>
     <groupId>mr.cookie</groupId>
     <artifactId>parent</artifactId>
-    <version>${revision}</version>
+    <version>0.1</version>
   </parent>
 
   <artifactId>models</artifactId>

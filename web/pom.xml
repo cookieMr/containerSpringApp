@@ -8,7 +8,7 @@
   <parent>
     <groupId>mr.cookie</groupId>
     <artifactId>parent</artifactId>
-    <version>${revision}</version>
+    <version>0.1</version>
   </parent>
 
   <artifactId>web</artifactId>
@@ -43,23 +43,15 @@
     <dependency>
       <groupId>mr.cookie</groupId>
       <artifactId>models</artifactId>
-      <version>${project.version}</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>mr.cookie</groupId>
       <artifactId>services</artifactId>
-      <version>${project.version}</version>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
