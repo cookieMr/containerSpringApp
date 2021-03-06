@@ -32,6 +32,10 @@
       <groupId>mr.cookie</groupId>
       <artifactId>models</artifactId>
     </dependency>
+    <dependency>
+      <groupId>mr.cookie</groupId>
+      <artifactId>data</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

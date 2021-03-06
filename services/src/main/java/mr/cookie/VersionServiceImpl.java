@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-// TODO: junits (5)
 @RequiredArgsConstructor
 @Service
 public class VersionServiceImpl implements VersionService {
