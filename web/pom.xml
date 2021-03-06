@@ -7,11 +7,11 @@
 
   <parent>
     <groupId>mr.cookie</groupId>
-    <artifactId>simple.app</artifactId>
+    <artifactId>parent</artifactId>
     <version>${revision}</version>
   </parent>
 
-  <artifactId>simple.app.web</artifactId>
+  <artifactId>web</artifactId>
   <name>Simple Boot App Web</name>
   <packaging>jar</packaging>
 
@@ -39,6 +39,18 @@
     <dependency>
       <groupId>javax.annotation</groupId>
       <artifactId>javax.annotation-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mr.cookie</groupId>
+      <artifactId>models</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>mr.cookie</groupId>
+      <artifactId>services</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 

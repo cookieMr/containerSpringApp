@@ -11,8 +11,8 @@
     <version>${revision}</version>
   </parent>
 
-  <artifactId>models</artifactId>
-  <name>Simple Boot App Models</name>
+  <artifactId>services</artifactId>
+  <name>Simple Boot App Services</name>
   <packaging>jar</packaging>
 
   <dependencies>
@@ -25,8 +25,14 @@
       <artifactId>lombok</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mr.cookie</groupId>
+      <artifactId>models</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 

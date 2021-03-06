@@ -17,31 +17,30 @@
 
   <modules>
     <module>models</module>
+    <module>data</module>
+    <module>services</module>
     <module>web</module>
   </modules>
 
   <groupId>mr.cookie</groupId>
-  <artifactId>simple.app</artifactId>
+  <artifactId>parent</artifactId>
   <version>${revision}</version>
   <packaging>pom</packaging>
 
   <properties>
     <revision>0.1</revision>
+
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     <lombok.version>1.18.18</lombok.version>
     <mapstruct.version>1.4.2.Final</mapstruct.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>mr.cookie</groupId>
-        <artifactId>simple.app.models</artifactId>
-        <version>${revision}</version>
-      </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
