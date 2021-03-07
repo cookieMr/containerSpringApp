@@ -3,6 +3,7 @@ package mr.cookie;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mr.cookie.entities.Movie;
+import mr.cookie.repositories.MovieRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

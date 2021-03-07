@@ -1,4 +1,4 @@
-package mr.cookie;
+package mr.cookie.repositories;
 
 import mr.cookie.entities.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
