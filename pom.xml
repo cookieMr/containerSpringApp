@@ -60,6 +60,13 @@
       </dependency>
 
       <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <scope>runtime</scope>
+        <version>42.2.19</version>
+      </dependency>
+
+      <dependency>
         <groupId>mr.cookie</groupId>
         <artifactId>data</artifactId>
         <version>${project.version}</version>

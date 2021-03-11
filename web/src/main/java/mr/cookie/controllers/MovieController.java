@@ -34,7 +34,7 @@ public class MovieController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @NotNull MovieDto saveOrUpdateMovie(@NotNull @RequestBody MovieDto movieDto) {
+    public @NotNull MovieDto saveOrUpdateMovie(@RequestBody @NotNull MovieDto movieDto) {
         return Optional.of(movieDto)
             .map(movieMapper::map)
             .map(movieService::saveMovie)
@@ -43,7 +43,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}")
-    public void removeMovie(@NotNull @PathVariable("id") Long id) {
+    public void removeMovie(@PathVariable("id") @NotNull Long id) {
         movieService.deleteMovie(id);
     }
 

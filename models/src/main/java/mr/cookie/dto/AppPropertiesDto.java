@@ -15,5 +15,6 @@ public class AppPropertiesDto {
     private String version;
     private String sha1;
     private String commitMessage;
+    private String springProfile;
 
 }

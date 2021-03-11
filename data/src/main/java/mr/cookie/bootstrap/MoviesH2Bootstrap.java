@@ -8,10 +8,12 @@ import mr.cookie.repositories.MovieRepository;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
+@Profile({"h2", "default"})
 public class MoviesH2Bootstrap implements CommandLineRunner {
 
     private final @NotNull MovieRepository movieRepository;
