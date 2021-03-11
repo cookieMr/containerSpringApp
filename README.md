@@ -1,11 +1,13 @@
 This is a Simple Spring Boot App that will be containerized
-along with three DB to choose from (H2, Postgres & MySQL).
-Based on Spring Profile a specific DB is chosen.
+along with two DBs (and one in memory DB) to choose from 
+(H2, Postgres & MySQL). Based on Spring Profile a specific 
+DB is chosen.
 
 ## Spring Profiles
 
-To run App with a specific profile an additional run parameter
-is required, the `-Dspring-boot.run.profiles=h2`. 
+To run the App with a specific profile an additional run parameter
+is required, the `-Dspring-boot.run.profiles=h2`. The *web* module
+holds the spring runner.
 
 E.g.:
 ```
@@ -21,7 +23,7 @@ There are three available profile:
 
 To run both containerized databases run the following command 
 in the same location as the `docker-compose.yml` file `docker-compose up`.
-The following command to clean everything up `docker-compose down`.
+Run the following command to clean everything up `docker-compose down`.
 These commands can be merge into one command for ease of use:
 ```
 docker-compose down && docker-compose up
