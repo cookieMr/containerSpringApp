@@ -1,12 +1,4 @@
-GRANT ALL PRIVILEGES ON DATABASE mcu TO docker;
-
-CREATE TABLE IF NOT EXISTS MOVIES (
-    ID SERIAL PRIMARY KEY,
-    TITLE VARCHAR(50) NOT NULL,
-    RELEASE_YEAR NUMERIC NOT NULL
-);
-
-INSERT INTO movies (title, release_year) values
+INSERT INTO movies (title, release_year) VALUES
     ('Iron Man', 2008),
     ('The Incredible Hulk', 2008),
     ('Iron Man 2', 2010),
@@ -30,3 +22,5 @@ INSERT INTO movies (title, release_year) values
     ('Captain Marvel', 2019),
     ('Avengers: Endgame', 2019),
     ('Spider-Man: Far From Home', 2019);
+
+COMMIT;

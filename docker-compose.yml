@@ -3,14 +3,29 @@ version: '3.7'
 services: 
   postgres:
     image: postgres
-    ports: 
+    ports:
       - "5432:5432"
-    environment: 
+    environment:
       - POSTGRES_PASSWORD=postgress_very_secret_password
       - POSTGRES_USER=docker
       - POSTGRES_DB=mcu
     volumes:
-      - ./data/src/main/resources/10_init_db_and_tables.sql:/docker-entrypoint-initdb.d/10_init_db_and_tables.sql
+      - ./data/src/main/resources/10_init_postgres_db.sql:/docker-entrypoint-initdb.d/10_init_postgres_db.sql
+      - ./data/src/main/resources/20_insert_into_movies.sql:/docker-entrypoint-initdb.d/20_insert_into_movies.sql
+    networks:
+      - java_develop
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql_very_secret_root_password
+      - MYSQL_DATABASE=mcu
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=mysql_very_secret_docker_password
+    volumes:
+      - ./data/src/main/resources/10_init_mysql_db.sql:/docker-entrypoint-initdb.d/10_init_mysql_db.sql
+      - ./data/src/main/resources/20_insert_into_movies.sql:/docker-entrypoint-initdb.d/20_insert_into_movies.sql
     networks:
       - java_develop
 
