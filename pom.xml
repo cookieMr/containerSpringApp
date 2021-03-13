@@ -143,6 +143,21 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M5</version>
         </plugin>
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+          <version>4.0.3</version>
+          <configuration>
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+            <prefix>git</prefix>
+            <generateGitPropertiesFilename>${basedir}/src/main/resources/git.properties</generateGitPropertiesFilename>
+            <verbose>false</verbose>
+            <includeOnlyProperties>
+              <includeOnlyProperty>git.commit.id</includeOnlyProperty>
+              <includeOnlyProperty>git.commit.message.short</includeOnlyProperty>
+            </includeOnlyProperties>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>

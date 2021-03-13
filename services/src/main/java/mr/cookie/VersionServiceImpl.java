@@ -5,11 +5,19 @@ import mr.cookie.dto.AppPropertiesDto;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
+@PropertySource("classpath:git.properties")
 public class VersionServiceImpl implements VersionService {
+
+    @Value("${git.commit.id:#{null}}")
+    private @Nullable String gitId;
+
+    @Value("${git.commit.message.short:#{null}}")
+    private @Nullable String gitShortMessage;
 
     @Value("${spring.application.name:#{null}}")
     private @Nullable String appName;
@@ -23,9 +31,11 @@ public class VersionServiceImpl implements VersionService {
     @Override
     public @NotNull AppPropertiesDto getVersionInfo() {
         return AppPropertiesDto.builder()
-            .name(appName)
-            .version(appVersion)
+            .commitMessage(gitShortMessage)
             .springProfile(springProfile)
+            .version(appVersion)
+            .name(appName)
+            .sha1(gitId)
             .build();
     }
 

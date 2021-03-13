@@ -58,3 +58,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Generated file by mvn plugin (needs to be always generated)
+git.properties
