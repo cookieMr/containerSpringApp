@@ -13,6 +13,7 @@ import org.mapstruct.ReportingPolicy;
 public interface MovieMapper {
 
     @Nullable Movie map(@Nullable MovieDto source);
+
     @Nullable MovieDto map(@Nullable Movie source);
 
 }

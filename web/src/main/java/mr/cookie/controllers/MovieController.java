@@ -1,6 +1,7 @@
 package mr.cookie.controllers;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,7 @@ public class MovieController {
         return movieService.getAllMovies()
             .stream()
             .map(movieMapper::map)
+            .filter(Objects::nonNull)
             .collect(Collectors.toList());
     }
 
