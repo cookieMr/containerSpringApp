@@ -41,3 +41,9 @@ These commands can be merge into one command for ease of use:
 ```
 docker-compose down && docker-compose up
 ```
+
+## Internal links
+
+1. Local [OpenAPI Specification 3.0](http://localhost:8080/api/swagger-ui/).
+2. Local [H2 console](http://localhost:8080/api/h2-console) (only if 
+   `h2` or `default` spring profile is active).
