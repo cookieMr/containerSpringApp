@@ -18,6 +18,7 @@ There are three available profile:
 1. `h2` - in memory DB, the default profile if none provided.
 1. `postgres` - a containerized Postgres DB.
 1. `mysql` - a containerized MySQL DB.
+One of these profiles is hardcoded into `docker-compose.yml` file.
 
 ## Logging
 
@@ -29,6 +30,8 @@ By default, logging level is set to `WARN` in a production code and to
 E.g.:
 ```
 mvn spring-boot:run -f ./web/pom.xml -Dspring-boot.run.profiles=h2 -Dlogging.level=DEBUG
+```
+```
 mvn test -Dlogging.test.level=TRACE
 ```
 
@@ -37,12 +40,20 @@ mvn test -Dlogging.test.level=TRACE
 To run both containerized databases run the following command 
 in the same location as the `docker-compose.yml` file `docker-compose up`.
 Run the following command to clean everything up `docker-compose down`.
-These commands can be merge into one command for ease of use:
+Both databases are started regardless of Spring profile. This is a pet project,
+so I am ok with that.
+
+A chosen Spring profile is hardcoded into this `docer-compose.yml` file. By 
+default, it's set to `postgres` Spring profile.
+
+These commands can be merged into one command for ease of use. It is important
+to recompile the Spring Boot App with `mvn clean install` so that updated Jar 
+file is picked up by `docker-compose` tool.
 ```
-docker-compose down && docker-compose up
+docker-compose down && mvn clean install && docker-compose up
 ```
 
-## Internal links
+## Internal (localhost) links
 
 1. Local [OpenAPI Specification 3.0](http://localhost:8080/api/swagger-ui/).
 2. Local [H2 console](http://localhost:8080/api/h2-console) (only if 
