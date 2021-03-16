@@ -23,17 +23,10 @@ One of these profiles is hardcoded into `docker-compose.yml` file.
 ## Logging
 
 This application uses a Logback XML file to configure logging levels.
-By default, logging level is set to `WARN` in a production code and to
+By default, logging level is set to `INFO` in a production code and to
 `ERROR` in a test code. To change it use a java command line parameter
-`-Dlogging.level=INFO` (or for a test code `-Dlogging.test.level=INFO`).
-
-E.g.:
-```
-mvn spring-boot:run -f ./web/pom.xml -Dspring-boot.run.profiles=h2 -Dlogging.level=DEBUG
-```
-```
-mvn test -Dlogging.test.level=TRACE
-```
+`-Dlogging.level=INFO` (or for a test code `-Dlogging.test.level=INFO`)
+while running `java` command.
 
 ## Docker containers (databases)
 

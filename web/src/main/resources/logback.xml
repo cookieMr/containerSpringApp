@@ -8,7 +8,7 @@
     </encoder>
   </appender>
 
-  <root level="${logging.level:-WARN}">
+  <root level="${logging.level:-INFO}">
     <appender-ref ref="STDOUT"/>
   </root>
 
