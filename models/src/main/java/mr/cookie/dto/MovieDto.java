@@ -1,5 +1,6 @@
 package mr.cookie.dto;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MovieDto {
+public class MovieDto implements Serializable {
 
     private Long id;
     private String title;

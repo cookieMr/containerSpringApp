@@ -2,6 +2,18 @@ version: '3.7'
 
 services:
 
+  docker-redis:
+    image: bitnami/redis
+    restart: always
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=redis_very_secret_password
+    logging:
+      driver: none
+    networks:
+      - java_develop
+
   docker-postgres:
     image: postgres
     restart: always
@@ -49,6 +61,7 @@ services:
     depends_on:
       - docker-postgres
       - docker-mysql
+      - docker-redis
     command: java -jar /usr/src/web-0.1.jar
     networks:
       - java_develop

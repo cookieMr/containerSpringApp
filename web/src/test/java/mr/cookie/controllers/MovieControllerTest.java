@@ -139,4 +139,11 @@ class MovieControllerTest {
         verifyNoInteractions(mapper);
     }
 
+    @Test
+    void clearCache() {
+        controller.clearCache();
+
+        verifyNoInteractions(service, mapper);
+    }
+
 }

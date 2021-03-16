@@ -2,6 +2,7 @@ package mr.cookie.controllers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
@@ -36,6 +37,13 @@ class VersionControllerTest {
 
         verify(service).getVersionInfo();
         verifyNoMoreInteractions(service);
+    }
+
+    @Test
+    void clearCache() {
+        controller.clearCache();
+
+        verifyNoInteractions(service);
     }
 
 }

@@ -1,5 +1,6 @@
 package mr.cookie;
 
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import mr.cookie.dto.AppPropertiesDto;
 import org.jetbrains.annotations.NotNull;
@@ -36,6 +37,7 @@ public class VersionServiceImpl implements VersionService {
             .version(appVersion)
             .name(appName)
             .sha1(gitId)
+            .uuid(UUID.randomUUID())
             .build();
     }
 
