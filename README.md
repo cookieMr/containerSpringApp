@@ -43,8 +43,9 @@ Run the following command to clean everything up `docker-compose down`.
 Both databases are started regardless of Spring profile. This is a pet project,
 so I am ok with that.
 
-A chosen Spring profile is hardcoded into this `docer-compose.yml` file. By 
-default, it's set to `postgres` Spring profile.
+A chosen Spring profile is hardcoded into this `docker-compose.yml` file. By 
+default, it's set to `postgres` Spring profile. Also `logging.level` is hardcoded
+into `docker-compose.yml` file to the `INFO` value.
 
 These commands can be merged into one command for ease of use. It is important
 to recompile the Spring Boot App with `mvn clean install` so that updated Jar 
