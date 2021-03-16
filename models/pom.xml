@@ -8,7 +8,7 @@
   <parent>
     <groupId>mr.cookie</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
   </parent>
 
   <artifactId>models</artifactId>
@@ -35,6 +35,10 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-boot-starter</artifactId>
     </dependency>
   </dependencies>
 

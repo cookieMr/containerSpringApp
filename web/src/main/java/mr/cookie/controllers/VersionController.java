@@ -1,5 +1,6 @@
 package mr.cookie.controllers;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mr.cookie.VersionService;
@@ -19,16 +20,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/version", produces = MediaType.APPLICATION_JSON_VALUE)
 public class VersionController implements ClearControllerCache {
 
+    public static final String CACHE_NAMES = "versions";
+
     private final @NotNull VersionService versionService;
 
-    @Cacheable(cacheNames = "versions", key = "#root.method.name")
+    @ApiOperation(value = "Gets Application Properties",
+        response = AppPropertiesDto.class)
+    @Cacheable(cacheNames = CACHE_NAMES, key = "#root.method.name")
     @GetMapping
     public @NotNull AppPropertiesDto getAppProperties() {
         log.info("Creating new version info object.");
         return versionService.getVersionInfo();
     }
 
-    @CacheEvict(cacheNames = "versions", allEntries = true)
+    @ApiOperation(value = "Gets Application Properties")
+    @CacheEvict(cacheNames = CACHE_NAMES, allEntries = true)
     @DeleteMapping
     @Override
     public void clearCache() {

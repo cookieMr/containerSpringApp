@@ -1,5 +1,6 @@
 package mr.cookie.controllers;
 
+import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,10 +28,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/movies", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MovieController implements ClearControllerCache {
 
+    public static final String CACHE_NAMES = "movies";
+
     private final @NotNull MovieService movieService;
     private final @NotNull MovieMapper movieMapper;
 
-    @Cacheable(cacheNames = "movies", key = "#root.method.name")
+    @ApiOperation(value = "Gets all movies persisted in the database",
+        response = MovieDto.class,
+        responseContainer = "List")
+    @Cacheable(cacheNames = CACHE_NAMES, key = "#root.method.name")
     @GetMapping
     public @NotNull List<MovieDto> getAllMovies() {
         log.info("Retrieving all movies from repository.");
@@ -41,7 +47,10 @@ public class MovieController implements ClearControllerCache {
             .collect(Collectors.toList());
     }
 
-    @CacheEvict(cacheNames = "movies", allEntries = true)
+    @ApiOperation(value = "Creates or updates a provided movie",
+        notes = "Creates (if no ID was provided or it does not exist in database) or updates a provided movie.",
+        response = MovieDto.class)
+    @CacheEvict(cacheNames = CACHE_NAMES, allEntries = true)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public @NotNull MovieDto saveOrUpdateMovie(@RequestBody @NotNull MovieDto movieDto) {
         return Optional.of(movieDto)
@@ -51,13 +60,15 @@ public class MovieController implements ClearControllerCache {
             .orElseThrow(() -> new IllegalArgumentException("Could not save provided movie!"));
     }
 
-    @CacheEvict(cacheNames = "movies", allEntries = true)
+    @ApiOperation(value = "Removes a specific movie from the database")
+    @CacheEvict(cacheNames = CACHE_NAMES, allEntries = true)
     @DeleteMapping("/{id}")
     public void removeMovie(@PathVariable("id") @NotNull Long id) {
         movieService.deleteMovie(id);
     }
 
-    @CacheEvict(cacheNames = "movies", allEntries = true)
+    @ApiOperation(value = "Clears cache with no effect on persisted data")
+    @CacheEvict(cacheNames = CACHE_NAMES, allEntries = true)
     @DeleteMapping
     @Override
     public void clearCache() {

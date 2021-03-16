@@ -31,12 +31,12 @@ public class SpringfoxConfiguration {
     @Value("${developer.email:#{null}}")
     private @Nullable String developerEmail;
 
+    @Value("${developer.url:#{null}}")
+    private @Nullable String developerUrl;
+
     @Bean
     public @NotNull Contact contact() {
-        return new Contact(
-            developerName,
-            "http://localhost:8080/api/version",
-            developerEmail);
+        return new Contact(developerName, developerUrl, developerEmail);
     }
 
     @Bean
