@@ -1,7 +1,7 @@
 This is a Simple Spring Boot App that will be containerized
 along with two DBs (and one in memory DB) to choose from 
 (H2, Postgres & MySQL). Based on Spring Profile a specific 
-DB is chosen.
+DB will be chosen.
 
 ## Spring Profiles
 
@@ -33,7 +33,7 @@ while running `java` command.
 To run both containerized databases run the following command 
 in the same location as the `docker-compose.yml` file `docker-compose up`.
 Run the following command to clean everything up `docker-compose down`.
-Both databases are started regardless of Spring profile. This is a pet project,
+Both databases will be started regardless of Spring profile. This is a pet project,
 so I am ok with that.
 
 A chosen Spring profile is hardcoded into this `docker-compose.yml` file. By 
@@ -42,7 +42,7 @@ into `docker-compose.yml` file to the `INFO` value.
 
 These commands can be merged into one command for ease of use. It is important
 to recompile the Spring Boot App with `mvn clean install` so that updated Jar 
-file is picked up by `docker-compose` tool.
+file will be picked up by `docker-compose` tool.
 ```
 docker-compose down && mvn clean install && docker-compose up
 ```
