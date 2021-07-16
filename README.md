@@ -52,3 +52,6 @@ docker-compose down && mvn clean install && docker-compose up
 1. Local [OpenAPI Specification 3.0](http://localhost:8080/api/swagger-ui/).
 2. Local [H2 console](http://localhost:8080/api/h2-console) (only if 
    `h2` or `default` spring profile is active).
+3. Local [Redis GUI](http://localhost:8081). It logs automatically into Redis.
+4. Local [PhpMyAdmin](http://localhost:8082) which is configured to allow connection only into MySQL database (not Postgres). User and password can be taken from `docker-compose.yml` file (very secure place to store credentials).
+5. Local [PgAdmin](http://localhost:8083). Password to this tool can be found in `docker-compose.yml` file. From there, a connection to Postgres database can be established. Again, use the `docker-compose.yml` file to get Postgres user and password.

@@ -21,6 +21,7 @@ INSERT INTO movies (title, release_year) VALUES
     ('Ant-Man and the Wasp', 2018),
     ('Captain Marvel', 2019),
     ('Avengers: Endgame', 2019),
-    ('Spider-Man: Far From Home', 2019);
+    ('Spider-Man: Far From Home', 2019),
+    ('Black Widow', 2021);
 
 COMMIT;
